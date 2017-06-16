@@ -1,0 +1,67 @@
+body {
+	background: darkblue;
+}
+
+.topHead {
+	text-align: center;
+	color: white;
+	text-shadow: 2px 2px black;
+}
+
+img {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.newsStation {
+	margin: auto;
+	left: 12%;
+	width: 60%;
+	background: lightblue;
+	border: 5px solid black;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 30px;
+
+}
+
+#newsSource{
+	list-style-type: none;
+	padding: 14px;
+	margin: 0;
+}
+
+#newsSource li{
+	display: inline;
+}
+
+.newsImage {
+	box-shadow: 1px 1px black;
+}
+
+#polygonImg {
+	background: mediumpurple;
+}
+
+#redcodeImg {
+	background: white;
+}
+
+#fortuneImg {
+	background-size: 60%;
+	background: white;
+}
+
+.headlines {
+
+	margin: auto;
+    width: 60%;
+    height: 600px;
+    padding: 15px;
+	overflow: auto;
+	border: 5px solid black;
+	border-top: none;
+	background: white;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
