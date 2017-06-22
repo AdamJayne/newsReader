@@ -4,7 +4,7 @@ var $articles = $("#article");
 var articleTemplate = ""+
 	'<li class= "list-group-item headlineBox">'+
 	'<h3>{{title}}</h3>'+
-	'<button class="btn btn-default visitPage"><a href="{{url}}" target="_empty">Visit</a></button>'+
+	'<button class="btn btn-default visitPage" onclick="{{url}}"><a href="{{url}}" target="_empty">Visit</a></button>'+
 	'<button class="btn btn-default addToReading">Read Later</button>'+
 	'</li>';
 

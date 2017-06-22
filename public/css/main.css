@@ -1,17 +1,30 @@
 body {
-	background: darkblue;
+	background-image: url('../img/background.jpg');
+	background-position: center;
+	background-size: 100%;
 }
 
-.topHead {
-	text-align: center;
+nav{
+	top: 0;
+	padding: 12px;
+	width: 184px;
+	position: fixed;
+	background-color: rgba(0,0,0,0.88);
+}
+
+nav h1{
+	margin: 0;
 	color: white;
-	text-shadow: 2px 2px black;
 }
 
 img {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
+}
+
+.Absolute-center {
+	margin-top: 2%;
 }
 
 .newsStation {
@@ -50,6 +63,10 @@ img {
 #fortuneImg {
 	background-size: 60%;
 	background: white;
+}
+
+.thiss{
+	text-align: center;
 }
 
 .headlines {
