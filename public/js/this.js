@@ -3,8 +3,9 @@ var $sortBy = $("#sortBy");
 var $articles = $("#article");
 var articleTemplate = ""+
 	'<li class= "list-group-item headlineBox">'+
+	'<img src="{{urlToImage}}" />' +
 	'<h3>{{title}}</h3>'+
-	'<button class="btn btn-default visitPage" onclick="{{url}}"><a href="{{url}}" target="_empty">Visit</a></button>'+
+	'<a href="{{url}}" class="btn btn-default visitPage" target="_empty">Visit</a>'+
 	'<button class="btn btn-default addToReading">Read Later</button>'+
 	'</li>';
 
@@ -14,11 +15,27 @@ function buildArticles(title){
 
 function buildReader(){};
 
+function emptyHeadlines(){
+	$('#newsArticles').empty();
+}
+
 $(document).ready(function(){
 	var apiKey="4f91f87027c643faa09e17e0d75c6b19";
+	var apiInfo = {
+		polygon: 'https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey=',
+		arsTechnica: 'https://newsapi.org/v1/articles?source=ars-technica&sortBy=top&apiKey=',
+		engadget: 'https://newsapi.org/v1/articles?source=engadget&sortBy=latest&apiKey=',
+		ign: 'https://newsapi.org/v1/articles?source=ign&sortBy=latest&apiKey=',
+		hacker: 'https://newsapi.org/v1/articles?source=hacker-news&sortBy=top&apiKey=',
+		redcode: 'https://newsapi.org/v1/articles?source=recode&sortBy=top&apiKey=',
+		crunch: 'https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=',
+		verge: 'https://newsapi.org/v1/articles?source=the-verge&sortBy=top&apiKey=',
+		fortune: 'https://newsapi.org/v1/articles?source=fortune&sortBy=top&apiKey=',
+		nextWeb: 'https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey='
+	}
 	// Polygon news source
 	$('#polygonImg').on('click', function(){
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#polygonImg').fadeTo(500, 0.6);
 		$('#arsTechnicaImg').fadeTo(500, 1);
 		$('#engadgetImg').fadeTo(500, 1);
@@ -31,7 +48,7 @@ $(document).ready(function(){
 		$('#nextwebImg').fadeTo(500, 1);
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.polygon + apiKey,
 			success: function(data){
 				$.each(data.articles, function(i, key){
 					buildArticles(key);
@@ -41,7 +58,7 @@ $(document).ready(function(){
 	});
 	//Ars Technica Source
 	$('#arsTechnicaImg').on('click', function(){
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#arsTechnicaImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#engadgetImg').fadeTo(500, 1);
@@ -54,7 +71,7 @@ $(document).ready(function(){
 		$('#nextwebImg').fadeTo(500, 1);
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=ars-technica&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.arsTechnica+apiKey,
 			success: function(data){
 				$.each(data.articles, function(i, key){
 					buildArticles(key);
@@ -65,7 +82,7 @@ $(document).ready(function(){
 	//Engadget Source
 	$('#engadgetImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#engadgetImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -78,8 +95,7 @@ $(document).ready(function(){
 		$('#nextwebImg').fadeTo(500, 1);
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=engadget&sortBy=latest&apiKey='+apiKey,
-			
+			url: apiInfo.engadget+apiKey			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
 					buildArticles(key);
@@ -92,7 +108,7 @@ $(document).ready(function(){
 	//IGN source
 	$('#ignImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#ignImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -105,8 +121,7 @@ $(document).ready(function(){
 		$('#nextwebImg').fadeTo(500, 1);
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=ign&sortBy=latest&apiKey='+apiKey,
-			
+			url: apiInfo.ign +apiKey			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
 					buildArticles(key);
@@ -119,7 +134,7 @@ $(document).ready(function(){
 	//Hacker News Source
 	$('#hackImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#hackImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -133,7 +148,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=hacker-news&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.hacker+apiKey,
 			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
@@ -147,7 +162,7 @@ $(document).ready(function(){
 	//Redcode Source
 	$('#redcodeImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#redcodeImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -161,7 +176,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=recode&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.redcode+apiKey,
 			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
@@ -175,7 +190,7 @@ $(document).ready(function(){
 	//Tech Crunch Source
 	$('#techcrunchImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#techcrunchImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -189,7 +204,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.crunch+apiKey,
 			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
@@ -203,7 +218,7 @@ $(document).ready(function(){
 	//The Verge Source
 	$('#vergeImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#vergeImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -217,7 +232,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=the-verge&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.verge+apiKey,
 			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
@@ -231,7 +246,7 @@ $(document).ready(function(){
 	//Fortune Source
 	$('#fortuneImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#fortuneImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -246,7 +261,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=fortune&sortBy=top&apiKey='+apiKey,
+			url: apiInfo.fortune+apiKey,
 			
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
@@ -260,7 +275,7 @@ $(document).ready(function(){
 	//The Next Web Source
 	$('#nextwebImg').on('click', function(){
 		console.log('this is working');
-		$('#newsArticles').empty();
+		emptyHeadlines();
 		$('#nextwebImg').fadeTo(500, 0.6);
 		$('#polygonImg').fadeTo(500, 1);
 		$('#arsTechnicaImg').fadeTo(500, 1);
@@ -275,16 +290,13 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: 'GET',
-			url: 'https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey='+apiKey,
-			
+			url: apiInfo.nextWeb+apiKey
 			}).done(function(data){
 				$.each(data.articles, function(i, key){
 					buildArticles(key);
 				});
 			}).fail(function(){
 				alert('The Next Web is down at the moment')
-			})
-			
+			});
 		});
-
 });
