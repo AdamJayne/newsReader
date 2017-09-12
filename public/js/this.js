@@ -20,7 +20,7 @@ function emptyHeadlines(){
 }
 
 $(document).ready(function(){
-	var apiKey="4f91f87027c643faa09e17e0d75c6b19";
+	var apiKey="1a40e0b58fa246f7908d3945a594f006";
 	var apiInfo = {
 		polygon: 'https://newsapi.org/v1/articles?source=polygon&sortBy=top&apiKey=',
 		arsTechnica: 'https://newsapi.org/v1/articles?source=ars-technica&sortBy=top&apiKey=',
