@@ -8,7 +8,6 @@ var articleTemplate = ""+
 	'<a href="{{url}}" class="btn btn-default visitPage" target="_empty">Visit</a>'+
 	'<button class="btn btn-default addToReading">Read Later</button>'+
 	'</li>';
-
 function buildArticles(title){
 	$('#newsArticles').append(Mustache.render(articleTemplate, title));
 };
@@ -17,6 +16,10 @@ function buildReader(){};
 
 function emptyHeadlines(){
 	$('#newsArticles').empty();
+}
+function toggleButton(){
+	$('.dark').fadeTo(500, 0.6);
+	$('.light').fadeTo(500, 1);
 }
 
 $(document).ready(function(){
@@ -36,16 +39,9 @@ $(document).ready(function(){
 	// Polygon news source
 	$('#polygonImg').on('click', function(){
 		emptyHeadlines();
-		$('#polygonImg').fadeTo(500, 0.6);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#polygonImg').removeClass("light").addClass("dark");
+		toggleButton();
 		$.ajax({
 			type: 'GET',
 			url: apiInfo.polygon + apiKey,
@@ -59,16 +55,9 @@ $(document).ready(function(){
 	//Ars Technica Source
 	$('#arsTechnicaImg').on('click', function(){
 		emptyHeadlines();
-		$('#arsTechnicaImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#arsTechnicaImg').removeClass("light").addClass("dark");
+		toggleButton();
 		$.ajax({
 			type: 'GET',
 			url: apiInfo.arsTechnica+apiKey,
@@ -83,16 +72,9 @@ $(document).ready(function(){
 	$('#engadgetImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#engadgetImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#engadgetImg').removeClass("light").addClass("dark");
+		toggleButton();
 		$.ajax({
 			type: 'GET',
 			url: apiInfo.engadget+apiKey			
@@ -109,16 +91,9 @@ $(document).ready(function(){
 	$('#ignImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#ignImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#ignImg').removeClass("light").addClass("dark");
+		toggleButton();
 		$.ajax({
 			type: 'GET',
 			url: apiInfo.ign +apiKey			
@@ -135,16 +110,9 @@ $(document).ready(function(){
 	$('#hackImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#hackImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#hackImg').removeClass("light").addClass("dark");
+		toggleButton();
 
 		$.ajax({
 			type: 'GET',
@@ -163,16 +131,9 @@ $(document).ready(function(){
 	$('#redcodeImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#redcodeImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#redcodeImg').removeClass("light").addClass("dark");
+		toggleButton();
 
 		$.ajax({
 			type: 'GET',
@@ -191,16 +152,9 @@ $(document).ready(function(){
 	$('#techcrunchImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#techcrunchImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#techcrunchImg').removeClass("light").addClass("dark");
+		toggleButton();
 
 		$.ajax({
 			type: 'GET',
@@ -219,16 +173,9 @@ $(document).ready(function(){
 	$('#vergeImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#vergeImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#vergeImg').removeClass("light").addClass("dark");
+		toggleButton();
 
 		$.ajax({
 			type: 'GET',
@@ -247,16 +194,9 @@ $(document).ready(function(){
 	$('#fortuneImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#fortuneImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#nextwebImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#fortuneImg').removeClass("light").addClass("dark");
+		toggleButton();
 
 
 		$.ajax({
@@ -276,16 +216,9 @@ $(document).ready(function(){
 	$('#nextwebImg').on('click', function(){
 		console.log('this is working');
 		emptyHeadlines();
-		$('#nextwebImg').fadeTo(500, 0.6);
-		$('#polygonImg').fadeTo(500, 1);
-		$('#arsTechnicaImg').fadeTo(500, 1);
-		$('#engadgetImg').fadeTo(500, 1);
-		$('#ignImg').fadeTo(500, 1);
-		$('#hackImg').fadeTo(500, 1);
-		$('#redcodeImg').fadeTo(500, 1);
-		$('#techcrunchImg').fadeTo(500, 1);
-		$('#vergeImg').fadeTo(500, 1);
-		$('#fortuneImg').fadeTo(500, 1);
+		$('.dark').addClass('light').removeClass('dark');
+		$('#nextwebImg').removeClass("light").addClass("dark");
+		toggleButton();
 
 
 		$.ajax({
